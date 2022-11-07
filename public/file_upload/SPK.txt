@@ -1,0 +1,35 @@
+Before we begin typing these procedures, let’s create all of the variables we currently
+know we need. We need a deposit and withdrawal variable to insert the new values
+and update the balance. In order to perform error checking, we use a value variable
+(declared as a variant data type) to receive user input before assigning values to the
+deposit and withdrawal variables. Additionally, we include sumDep and sumWith
+variables to calculate the respective sums. And we introduce two range variables to
+identify the “Amount” and “Balance” columns: AccountStart and BalanceStart. Later,
+we will use an integer counter i for our loops and a response variable (declared as a
+variant data type) in a MsgBox function. 
+
+Sub NewDeposit()
+Value = InputBox("Please enter amount to deposit.", "New Deposit", 150)
+    If IsNumeric(Value) = False Then
+        MsgBox "You have not entered a numerical value. Please try again."
+        Exit Sub
+    End If
+
+    With AccountStart.End(xlDown).Offset(1, 0)
+        .Value = deposit
+        .Interior.ColorIndex = 0
+    End With
+    
+    Range(AccountStart.End(xlDown).Offset(0, -3), _
+        AccountStart.End(xlDown).Offset(0, -2)).Interior.ColorIndex = 0
+    BalanceStart.End(xlDown).Offset(1, 0).Interior.ColorIndex = 0
+
+    Call UpdateBalance(deposit, "D")
+    MsgBox "You may now enter the date and description of your deposit into the table."
+
+    response = MsgBox("Would you like to enter another deposit?", vbYesNo, _
+                    "Another Deposit?")
+    If response = vbYes Then
+        Call NewDeposit
+    End If
+ End Sub
