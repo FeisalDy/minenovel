@@ -26,7 +26,7 @@
             <a class="nav-link" href="/home">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="novels.php">Novels</a>
+            <a class="nav-link" href="/list-novel">Novels</a>
             </li>
             @if( auth()->check() )
                 @if( auth()->user()->role == 'admin' )

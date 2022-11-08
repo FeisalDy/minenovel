@@ -1,47 +1,24 @@
 @extends('layouts.master')
 
 @section('content')
-<?php header("Content-Type: text/plain; charset=UTF-8");
-?>
-        <h1>{{ $title }}</h1>
-
-        <p>This is the home page for an example Laravel web application.</p>
-
-    
-        <?php
-        $file = $data->text;
-        $myFile = public_path('file_upload/'. $file);
-        $contents = file_get_contents($myFile);
-
-        $encoding = mb_detect_encoding($myFile, mb_detect_order(), false);
-        if($encoding == "UTF-8"){
-            $myFile = mb_convert_encoding($myFile, 'UTF-8', 'UTF-8');    
-        }
-
-        $out = iconv(mb_detect_encoding($myFile, mb_detect_order(), false), "UTF-8//IGNORE", $myFile);
-        $contents = file_get_contents($myFile);
-        $contents = mb_convert_encoding($contents, 'UTF-8', 'UTF-8');
-
-        $linecount = 0;
-        $handle = fopen($myFile, "r");
-            while(!feof($handle)){
-                $line = fgets($handle);
-                $linecount++;
-            }
-        fclose($handle);
-
-         ?>
-
-
-
-
-
-
-
-
-        {{$linecount}}
-        <br>
-        {!! nl2br(e($contents)) !!}
-
+<h2 class="alert alert-success text-center">
+            Cara Input dan Tampil Data Tanpa Reload dengan Ajax Jquery
+        </h2>
+        <div class="row">
+            <div class="col-3">
+                <div class="card border-0">
+                    <img src="{{asset('file_upload')}}/{{$data->file}}" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-9"> 
+                <div class="card border-0">
+                        <h3>{{$data->title}}</h3>
+                        {!! nl2br(e($data->keterangan)) !!}
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>{{$data2->chapter}}</h3>
+        </div>
 @endsection
     

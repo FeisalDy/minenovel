@@ -18,7 +18,6 @@ class CreateUploadsTable extends Migration
             $table->string('file');
             $table->string('title');
             $table->string('keterangan');
-            $table->string('text');
             $table->timestamps();
         });
     }

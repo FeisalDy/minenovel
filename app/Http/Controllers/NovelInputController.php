@@ -12,7 +12,9 @@ class NovelInputController extends Controller
     public function createinfo($novelId)
     {
         $data = Upload::findOrFail($novelId);
-        return view('novelinfo', ['title' => 'Novel Info'])->with('data', $data);
+        $data2 = Chapter::all();
+
+        return view('novelinfo', ['title' => $data->title])->with('data', $data)->with('data2', $data2);  
     }  
 
     public function create()
@@ -36,27 +38,22 @@ class NovelInputController extends Controller
             'file'          => 'required',
             'title'         => 'required',
             'keterangan'    => 'required',
-            'text'          => 'required'
         ]);
 
         //mengambil data file yang diupload
         $file           = $request->file('file');
-        $text           = $request->file('text');
         //mengambil nama file
         $nama_file      = $file->getClientOriginalName();
-        $nama_text      = $text->getClientOriginalName();
 
 
         //memindahkan file ke folder tujuan
         $file->move('file_upload',$file->getClientOriginalName());
-        $text->move('file_upload',$text->getClientOriginalName());
 
 
         $upload = new Upload;
         $upload->file = $nama_file;
         $upload->title = $request->input('title');
         $upload->keterangan = $request->input('keterangan');
-        $upload->text = $nama_text;
 
         //menyimpan data ke database
         $upload->save();

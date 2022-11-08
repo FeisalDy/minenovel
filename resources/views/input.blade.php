@@ -29,18 +29,10 @@
 
                             <div class="form-outline mb-4">
                             <label class="form-label d-flex justify-content-start" for="form2Example2">Keterangan</label>
-                            <textarea class="form-control" name="keterangan" id="form2Example2" rows="5"></textarea>
+                            <textarea class="form-control" name="keterangan" id="form2Example2" rows="10"></textarea>
                             </div>
                             @error('keterangan')
                                 <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="form-outline mb-4">
-                            <label class="form-label d-flex justify-content-start" for="form2Example1">Text</label>
-                            <input type="file" name="text" id="form2Example1" class="form-control" />
-                            </div>
-                            @error('text')
-                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
 
                         <div class="d-flex justify-content-end">

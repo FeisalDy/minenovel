@@ -19,6 +19,7 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\NovelInfoController;
 use App\Http\Controllers\NovelInputController;
+use App\Http\Controllers\ListNovelController;
 
 Route::get('/', [SessionsController::class, 'create']);
 
@@ -43,4 +44,5 @@ Route::get('/novel/{novelId}', [NovelInputController::class, 'createinfo'])->nam
 Route::get('/input/chapter', [NovelInputController::class, 'chapter']);
 Route::post('/input/chapter/proses', [NovelInputController::class, 'storechapter']);
 
+Route::get('/list-novel', [ListNovelController::class, 'index']);
 
