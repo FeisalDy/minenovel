@@ -11,16 +11,15 @@
                         {{-- jika mengirim file wajib menggunakan enctype="multipart/form-data" --}}
                         <form action="{{url('input/chapter/proses')}}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-outline mb-4">
-                            <label class="form-label d-flex justify-content-start" for="form2Example1">Title</label>
-                            <input type="text" name="title" placeholder="Title"id="form2Example1" class="form-control" />
-                            </div>
-                            @error('title')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                            <h3>{{$data2->title}}</h3>
 
+                            <?php 
+                            $title = $data2->title;
+                            ?>
+                            <input type="hidden" name="title" value="<?php echo $title?>">
+
+                            <br>
                             <div class="form-outline mb-4">
-                            <label class="form-label d-flex justify-content-start" for="form2Example1">Text</label>
                             <input type="file" name="text" id="form2Example1" class="form-control" />
                             </div>
                             @error('text')
@@ -38,9 +37,8 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">File</th>
-                            <th scope="col">Title</th>
+                            <th scope="col">Judul</th>
+                            <th scope="col">Chapter</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -48,17 +46,10 @@
                         {{-- menampilkan data  --}}
                         @foreach ($data as $key=>$item)
                         <tr>
-                            <td>{{$data->firstItem()+$key}}</td>
                             <td>
-                                {{-- jika ekstensi file adalah png, jpg atau jpeg maka tampilkan gambar  --}}
-                                @if( in_array(pathinfo($item->file, PATHINFO_EXTENSION), ['png', 'jpg', 'JPEG']))
-                                    <img src="{{asset('file_upload')}}/{{$item->file}}" style="height: 60px">
-                                @else
-                                    <img src="https://www.freeiconspng.com/uploads/file-txt-icon--icon-search-engine--iconfinder-14.png"
-                                    style="height: 10%">
-                                @endif
+                                {{$item->title}}
                             </td>
-                            <td>{{$item->title}}</td>
+                            <td>Chapter {{$data->firstItem()+$key}}</td>
                             <td>
                             <a href="{{ route('create', ['novelId' => $item->id]) }}" class="btn btn-primary">Select</a>
                             </td>

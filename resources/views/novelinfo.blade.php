@@ -17,8 +17,17 @@
                 </div>
             </div>
         </div>
+        <br>
         <div>
-            <h3>{{$data2->chapter}}</h3>
+            @foreach($data2->chunk(5) as $chunk)
+                <div class="row">
+                    @foreach($chunk as $key=>$item)
+                        <div class="col-md">
+                        <a href="{{ route('view', ['partId' => $item->part, 'novelId' => $item->judul]) }}">Chapter {{$item->part}}</a>
+                        </div>
+                    @endforeach
+                </div>
+            @endforeach
         </div>
 @endsection
     

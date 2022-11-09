@@ -63,12 +63,12 @@
                                     <img src="{{asset('file_upload')}}/{{$item->file}}" style="height: 60px">
                                 @else
                                     <img src="https://www.freeiconspng.com/uploads/file-txt-icon--icon-search-engine--iconfinder-14.png"
-                                    style="height: 10%">
+                                    style="height: 60px">
                                 @endif
                             </td>
                             <td>{{$item->title}}</td>
                             <td>
-                            <a href="{{ route('create', ['novelId' => $item->id]) }}" class="btn btn-primary">Select</a>
+                            <a href="{{ route('inputchapter', ['novelId' => $item->title]) }}" class="btn btn-primary">Select</a>
                             </td>
                         </tr>
                         @endforeach

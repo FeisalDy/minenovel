@@ -30,7 +30,7 @@
                                 </td>
                                 <td>{{$item->title}}</td>
                                 <td>
-                                <a href="{{ route('create', ['novelId' => $item->id]) }}" class="btn btn-primary">Select</a>
+                                <a href="{{ route('create', ['novelId' => $item->title]) }}" class="btn btn-primary">Select</a>
                                 </td>
                             </tr>
                             @endforeach

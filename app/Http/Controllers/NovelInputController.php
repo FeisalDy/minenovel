@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Upload;
 use App\Models\Chapter;
+use Illuminate\Support\Facades\DB;
+
 
 class NovelInputController extends Controller
 {
@@ -25,10 +27,13 @@ class NovelInputController extends Controller
         return view('input', ['title' => 'Input Novel'])->with('data', $data);
     }
 
-    public function chapter(){
+    public function chapter($novelId){
 
-        $data = Chapter::paginate(5);
-        return view('input-chapter', ['title' => 'Input Chapter'])->with('data', $data);
+        $data = DB::table('chapters')->join('uploads', 'chapters.judul', '=', 'uploads.title')->
+        where('uploads.title', $novelId)->paginate(10);
+        $data2 = DB::table('uploads')->where('title', $novelId)->first();
+
+        return view('input-chapter', ['title' => 'Input Chapter'])->with('data', $data)->with('data2', $data2);
     }
 
     public function store(Request $request){
@@ -91,7 +96,8 @@ class NovelInputController extends Controller
 
         for($i = 0; $i < count($five); $i++){
             $upload = new Chapter;
-            $upload->title = $request->input('title');
+            $upload->judul = $request->input('title');
+            $upload->part = $i + 1;
 
             $upload->chapter = $five[$i];
             

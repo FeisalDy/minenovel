@@ -39,9 +39,10 @@ Route::get('/logout', [SessionsController::class, 'destroy']);
 
 Route::get('/input', [NovelInputController::class, 'create']);
 Route::post('/input/proses', [NovelInputController::class, 'store']);
-Route::get('/novel/{novelId}', [NovelInputController::class, 'createinfo'])->name('create');
+Route::get('/novel/{novelId}', [ListNovelController::class, 'createinfo'])->name('create');
+Route::get('/novel/{novelId}/{partId}', [ListNovelController::class, 'viewchapter'])->name('view');
 
-Route::get('/input/chapter', [NovelInputController::class, 'chapter']);
+Route::get('/input/chapter/{novelId}', [NovelInputController::class, 'chapter'])->name('inputchapter');
 Route::post('/input/chapter/proses', [NovelInputController::class, 'storechapter']);
 
 Route::get('/list-novel', [ListNovelController::class, 'index']);
