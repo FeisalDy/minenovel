@@ -1,9 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<h2 class="alert alert-success text-center">
-            Cara Input dan Tampil Data Tanpa Reload dengan Ajax Jquery
-        </h2>
         <div class="row">
             <div class="col-3">
                 <div class="card border-0">
@@ -19,11 +16,11 @@
         </div>
         <br>
         <div>
-            @foreach($data2->chunk(5) as $chunk)
+            @foreach($data2->chunk(4) as $chunk)
                 <div class="row">
                     @foreach($chunk as $key=>$item)
-                        <div class="col-md">
-                        <a href="{{ route('view', ['partId' => $item->part, 'novelId' => $item->judul]) }}">Chapter {{$item->part}}</a>
+                        <div class="col-3">
+                            <a href="{{ route('view', ['partId' => $item->part, 'novelId' => $item->judul]) }}">Chapter {{$item->part}}</a>
                         </div>
                     @endforeach
                 </div>

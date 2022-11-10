@@ -27,9 +27,19 @@ class ListNovelController extends Controller
 
     public function viewchapter($partId, $novelId)
     {
-        $data = DB::table('chapters')->where('judul', $partId)->where('part', '$novelId')->count();
-        $data2 = $partId;
-        $data3 = $novelId;
-        return view('chapter-view',['title' => 'Chapter View'])->with('data',$data);
+        $data = DB::table('chapters')->where('part', $novelId)->where('judul', $partId)->first();
+        $jumlahpart = DB::table('chapters')->where('part', $novelId)->where('judul', $partId)->count();
+        if($novelId>1){
+            $back = $novelId-1;
+        }else{
+            $back = $novelId;
+        }
+        if($novelId<$jumlahpart){
+            $next = $novelId+1;
+        }else{
+            $next = $novelId;
+        }
+        return view('chapter-view',['title' => 'Chapter View'])->with('data',$data)
+        ->with('back',$back)->with('next',$next);
     }
 }

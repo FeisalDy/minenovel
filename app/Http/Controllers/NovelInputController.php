@@ -88,7 +88,7 @@ class NovelInputController extends Controller
 
         $five = array();
         for($i = 0; $i < count($names); $i++)
-            if ($i % 200 == 0)
+            if ($i % 5 == 0)
                 $five[count($five)] = $names[$i];
             else
                 $five[count($five) - 1] .= "\n" . $names[$i];
@@ -98,11 +98,11 @@ class NovelInputController extends Controller
             $upload = new Chapter;
             $upload->judul = $request->input('title');
             $upload->part = $i + 1;
-
             $upload->chapter = $five[$i];
-            
             $upload->save();
         }
+
+        unlink($myFile);
 
         //kembali ke halaman sebelumnya
         return back();
