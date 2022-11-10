@@ -15,10 +15,17 @@ class CreateChaptersTable extends Migration
     {
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('chpater');
+            $table->string('judul')->references('title')->on('uploads');
+            $table->integer('part');
+            $table->longText('chapter');
             $table->timestamps();
         });
+
+        Schema::table('chapters', function (Blueprint $table){
+            $table->foreign('judul')->references('title')->on('uploads')
+            ->onDelete('cascade');
+        });
+
     }
 
     /**
