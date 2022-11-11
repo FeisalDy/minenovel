@@ -88,7 +88,7 @@ class NovelInputController extends Controller
 
         $five = array();
         for($i = 0; $i < count($names); $i++)
-            if ($i % 5 == 0)
+            if ($i % 100 == 0)
                 $five[count($five)] = $names[$i];
             else
                 $five[count($five) - 1] .= "\n" . $names[$i];

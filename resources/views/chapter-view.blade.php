@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="row border border-secondary">
+<div class="container">
+<div class="row border-0">
     <div class="col">
         <div class="card border-0">
             <ul class="pagination">
@@ -25,28 +26,14 @@
      </div>
 </div>
 
-<div class="row border border-secondary">
+<div class="row justify-content-md-center">
+    <div class="col border-0 col-lg-11">
         {!! nl2br(e($data->chapter)) !!}
-        {{$data->chapter}}
-        <?php
-        $coba = "               kok bisa                    sih                     "; 
-        $coba2 = $data->chapter;
-        $ro = preg_replace('/\s+/', ' ', $data->chapter);
-        $text = preg_replace("/[\r\n]+/", "\n", $data->chapter);
-        $text2 = preg_replace("/[\r\n]+/", "\n", $coba2);
-
-        
-        ?>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1>HAHAHAHAHAHAHAHAHA</h1>
-                {!! nl2br(e($text2)) !!}
+    </div>
 </div>
+<br>
 
-<div class="row border border-secondary">
+<div class="row border-0">
     <div class="col">
         <div class="card border-0">
             <ul class="pagination">
@@ -68,6 +55,7 @@
             </ul>
         </div>
      </div>
+</div>
 </div>
 
 
