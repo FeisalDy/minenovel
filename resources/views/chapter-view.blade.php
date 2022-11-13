@@ -27,7 +27,7 @@
 </div>
 
 <div class="row justify-content-md-center">
-    <div class="col border-0 col-lg-11">
+    <div class="col border-0">
         {!! nl2br(e($data->chapter)) !!}
     </div>
 </div>

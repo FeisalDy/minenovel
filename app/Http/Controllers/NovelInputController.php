@@ -32,8 +32,15 @@ class NovelInputController extends Controller
         $data = DB::table('chapters')->join('uploads', 'chapters.judul', '=', 'uploads.title')->
         where('uploads.title', $novelId)->paginate(10);
         $data2 = DB::table('uploads')->where('title', $novelId)->first();
+        $data3 = $novelId;
 
-        return view('input-chapter', ['title' => 'Input Chapter'])->with('data', $data)->with('data2', $data2);
+        return view('input-chapter', ['title' => 'Input Chapter'])->with('data', $data)->with('data2', $data2)->with('data3', $data3);
+    }
+
+    public function deletechapter($novelId){
+        $data = Chapter::where('judul', $novelId)->delete();
+
+        return back();
     }
 
     public function store(Request $request){
@@ -85,6 +92,7 @@ class NovelInputController extends Controller
         $myFile = public_path('file_upload/'. $nama_chapter);
         $content_text = file_get_contents($myFile);
         $names = explode("\n", $content_text);
+        
 
         $five = array();
         for($i = 0; $i < count($names); $i++)
@@ -93,7 +101,6 @@ class NovelInputController extends Controller
             else
                 $five[count($five) - 1] .= "\n" . $names[$i];
         
-
         for($i = 0; $i < count($five); $i++){
             $upload = new Chapter;
             $upload->judul = $request->input('title');
@@ -107,4 +114,5 @@ class NovelInputController extends Controller
         //kembali ke halaman sebelumnya
         return back();
     }
+
 }

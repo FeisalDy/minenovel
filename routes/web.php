@@ -44,6 +44,7 @@ Route::get('/novel/{novelId}/{partId}', [ListNovelController::class, 'viewchapte
 
 Route::get('/input/chapter/{novelId}', [NovelInputController::class, 'chapter'])->name('inputchapter');
 Route::post('/input/chapter/proses', [NovelInputController::class, 'storechapter']);
+Route::get('/input/chapter/delete/{novelId}', [NovelInputController::class, 'deletechapter'])->name('deletechapter');
 
 Route::get('/list-novel', [ListNovelController::class, 'index']);
 

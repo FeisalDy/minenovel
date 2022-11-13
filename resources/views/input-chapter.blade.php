@@ -39,7 +39,10 @@
                         <tr>
                             <th scope="col">Judul</th>
                             <th scope="col">Chapter</th>
-                            <th scope="col"></th>
+                            <th scope="col">
+                            <a href="{{ route('deletechapter', ['novelId' => $data3])  }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?')" class="btn btn-danger">Delete</a>
+
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
