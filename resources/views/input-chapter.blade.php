@@ -1,10 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<h2 class="alert alert-success text-center">
-            Cara Input dan Tampil Data Tanpa Reload dengan Ajax Jquery
-        </h2>
-        <div class="row">
+<div class="row">
             <div class="col-5">
                 <div class="card">
                     <div class="card-body">
@@ -65,6 +62,5 @@
                 </div>
             </div>
         </div>
-
 @endsection
     

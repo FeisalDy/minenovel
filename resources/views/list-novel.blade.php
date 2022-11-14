@@ -1,9 +1,6 @@
     @extends('layouts.master')
 
     @section('content')
-    <h2 class="alert alert-success text-center">
-                Cara Input dan Tampil Data Tanpa Reload dengan Ajax Jquery
-            </h2>
             <div class="row">
                     <table class="table table-striped">
                         <thead>

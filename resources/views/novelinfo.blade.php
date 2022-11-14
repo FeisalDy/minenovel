@@ -16,10 +16,10 @@
         </div>
         <br>
         <div>
-            @foreach($data2->chunk(4) as $chunk)
+            @foreach($data2->chunk(3) as $chunk)
                 <div class="row">
                     @foreach($chunk as $key=>$item)
-                        <div class="col-3">
+                        <div class="col-4">
                             <a href="{{ route('view', ['partId' => $item->part, 'novelId' => $item->judul]) }}">Chapter {{$item->part}}</a>
                         </div>
                     @endforeach

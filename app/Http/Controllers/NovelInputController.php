@@ -37,6 +37,12 @@ class NovelInputController extends Controller
         return view('input-chapter', ['title' => 'Input Chapter'])->with('data', $data)->with('data2', $data2)->with('data3', $data3);
     }
 
+    public function deletenovel($novelId){
+        $data = Upload::where('title', $novelId)->delete();
+
+        return back();
+    }
+
     public function deletechapter($novelId){
         $data = Chapter::where('judul', $novelId)->delete();
 

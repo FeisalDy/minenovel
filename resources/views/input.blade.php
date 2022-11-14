@@ -1,9 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<h2 class="alert alert-success text-center">
-            Cara Input dan Tampil Data Tanpa Reload dengan Ajax Jquery
-        </h2>
         <div class="row">
             <div class="col-5">
                 <div class="card">
@@ -69,6 +66,7 @@
                             <td>{{$item->title}}</td>
                             <td>
                             <a href="{{ route('inputchapter', ['novelId' => $item->title]) }}" class="btn btn-primary">Select</a>
+                            <a href="{{ route('deletenovel', ['novelId' => $item->title])  }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?')" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         @endforeach
@@ -79,6 +77,5 @@
                 </div>
             </div>
         </div>
-
 @endsection
     
