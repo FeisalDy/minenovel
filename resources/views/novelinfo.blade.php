@@ -20,7 +20,7 @@
                 <div class="row">
                     @foreach($chunk as $key=>$item)
                         <div class="col-4">
-                            <a href="{{ route('view', ['partId' => $item->part, 'novelId' => $item->judul]) }}">Chapter {{$item->part}}</a>
+                            <a href="{{ route('view', ['partId' => $item->part, 'novelId' => $item->judul]) }}" class="text-dark">Chapter {{$item->part}}</a>
                         </div>
                     @endforeach
                 </div>

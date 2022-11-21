@@ -27,19 +27,19 @@
 
     <div class="col d-flex mb-4">
       <!-- Simple link -->
-      <a href="#!" class="text-decoration-none">Forgot password?</a>
+      <a href="#!" class="text-secondary text-decoration-none">Forgot password?</a>
     </div>
 
   <!-- Submit button -->
     <div class="d-flex justify-content-end">
-      <input type="submit" class="btn btn-primary btn-block mb-4" name="login" value="Login" />
+      <input type="submit" class="btn btn-dark btn-block mb-4" name="login" value="Login" />
     </div>
 
   @include('partial.formerrors')
 
   <!-- Register buttons -->
   <div class="text-center">
-    <p>Not a member? <a href="register" class="text-decoration-none">Register</a></p>
+    <p>Not a member? <a href="register" class="text-secondary text-decoration-none">Register</a></p>
   </div>
 </form>
 </div>

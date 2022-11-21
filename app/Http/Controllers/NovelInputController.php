@@ -34,7 +34,7 @@ class NovelInputController extends Controller
         $data2 = DB::table('uploads')->where('title', $novelId)->first();
         $data3 = $novelId;
 
-        return view('input-chapter', ['title' => 'Input Chapter'])->with('data', $data)->with('data2', $data2)->with('data3', $data3);
+        return view('input-chapter',compact('data'), ['title' => 'Input Chapter'])->with('data2', $data2)->with('data3', $data3);
     }
 
     public function deletenovel($novelId){

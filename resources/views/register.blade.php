@@ -30,12 +30,12 @@
 
   <!-- Submit button -->
   <div class="d-flex justify-content-end">
-    <input type="submit" class="btn btn-primary btn-block mb-4" name="register" value="Register" />
+    <input type="submit" class="btn btn-dark btn-block mb-4" name="register" value="Register" />
   </div>
 
   <!-- Register buttons -->
   <div class="text-center">
-    <p>Is a member? <a href="/login" class="text-decoration-none">Login</a></p>
+    <p>Is a member? <a href="/login" class="text-secondary text-decoration-none">Login</a></p>
   </div>
 </form>
 </div>

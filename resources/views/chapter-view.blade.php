@@ -2,23 +2,24 @@
 
 @section('content')
 <div class="container">
-<div class="row border-0">
+<h3 style="text-align:center;">Section {{$data->part}}</h3>
+<div class="row border-0 ">
     <div class="col">
         <div class="card border-0">
             <ul class="pagination">
-                <div class="col text-center-left">
+                <div class="col text-center-lefts">
                     <li class="page-item">
-                        <a class="page-link border-0"  href="{{ route('view', ['partId' => $back, 'novelId' => $data->judul]) }}">Previous</a>
+                        <a class="page-link border-0 text-dark"  href="{{ route('view', ['partId' => $back, 'novelId' => $data->judul]) }}">Previous</a>
                     </li>
                 </div>
                 <div class="col text-center">
                     <li class="page-item ">
-                        <a class="page-link border-0" href="{{ route('create', ['novelId' => $data->judul]) }}">Index</a>
+                        <a class="page-link border-0 text-dark" href="{{ route('create', ['novelId' => $data->judul]) }}">Index</a>
                     </li>
                 </div>
                 <div class="col">
                     <li class="page-item text-right">
-                        <a class="page-link border-0" href="{{ route('view', ['partId' => $next, 'novelId' => $data->judul]) }}">Previous</a>
+                        <a class="page-link border-0 text-dark" href="{{ route('view', ['partId' => $next, 'novelId' => $data->judul]) }}">Previous</a>
                     </li>
                 </div>
             </ul>
@@ -39,17 +40,17 @@
             <ul class="pagination">
                 <div class="col text-center-left">
                     <li class="page-item">
-                        <a class="page-link border-0"  href="{{ route('view', ['partId' => $back, 'novelId' => $data->judul]) }}">Previous</a>
+                        <a class="page-link border-0 text-dark"  href="{{ route('view', ['partId' => $back, 'novelId' => $data->judul]) }}">Previous</a>
                     </li>
                 </div>
                 <div class="col text-center">
                     <li class="page-item ">
-                        <a class="page-link border-0" href="{{ route('create', ['novelId' => $data->judul]) }}">Index</a>
+                        <a class="page-link border-0 text-dark" href="{{ route('create', ['novelId' => $data->judul]) }}">Index</a>
                     </li>
                 </div>
                 <div class="col">
                     <li class="page-item text-right">
-                        <a class="page-link border-0" href="{{ route('view', ['partId' => $next, 'novelId' => $data->judul]) }}">Previous</a>
+                        <a class="page-link border-0 text-dark" href="{{ route('view', ['partId' => $next, 'novelId' => $data->judul]) }}">Previous</a>
                     </li>
                 </div>
             </ul>
