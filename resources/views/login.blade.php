@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container w-75 p-3">
+<div class="container w-75 p-3 text-dark">
 <form action="/login" method="POST">
 {{ csrf_field() }}
   <!-- Email input -->
@@ -27,7 +27,7 @@
 
     <div class="col d-flex mb-4">
       <!-- Simple link -->
-      <a href="#!" class="text-secondary text-decoration-none">Forgot password?</a>
+      <a href="#!" class="text-info" style="text-decoration: none;">Forgot password?</a>
     </div>
 
   <!-- Submit button -->
@@ -39,7 +39,7 @@
 
   <!-- Register buttons -->
   <div class="text-center">
-    <p>Not a member? <a href="register" class="text-secondary text-decoration-none">Register</a></p>
+    <p>Not a member? <a href="register" class="text-info" style="text-decoration: none;">Register</a></p>
   </div>
 </form>
 </div>

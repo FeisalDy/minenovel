@@ -1,5 +1,4 @@
 @extends('layouts.master')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <style>
     .page-item.active .page-link{
         z-index: 3;
@@ -42,14 +41,21 @@
         @csrf
             <div class="custom-file form-outline mb-4">
                 <label class="custom-file-label" for="form2Example1">Image</label>
-                <input type="file" name="file" id="form2Example1" class="custom-file-input" />
+                <input type="file" name="file" id="form2Example1" class="custom-file-input bg-dark" style="background-color: dark;"/>
             </div>
+            <script>
+            // Add the following code if you want the name of the file appear on select
+            $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            });
+            </script>
             @error('file')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
             <div class="form-outline mb-4">
-                <label class="form-label d-flex justify-content-start" for="form2Example1">Title</label>
+                <label class="form-label d-flex justify-content-start text-light" for="form2Example1">Title</label>
                 <input type="text" name="title" placeholder="Title"id="form2Example1" class="form-control" />
             </div>
             @error('title')
@@ -57,7 +63,7 @@
             @enderror
 
             <div class="form-outline mb-4">
-                <label class="form-label d-flex justify-content-start" for="form2Example2">Keterangan</label>
+                <label class="form-label d-flex justify-content-start text-light" for="form2Example2">Keterangan</label>
                 <textarea class="form-control" name="keterangan" id="form2Example2" rows="10"></textarea>
             </div>
             @error('keterangan')

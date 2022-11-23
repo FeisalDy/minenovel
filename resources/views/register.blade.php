@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container w-75 p-3">
+<div class="container w-75 p-3 text-dark">
 <form action="/register" method="post">
 {{ csrf_field() }}
 
@@ -35,7 +35,7 @@
 
   <!-- Register buttons -->
   <div class="text-center">
-    <p>Is a member? <a href="/login" class="text-secondary text-decoration-none">Login</a></p>
+    <p>Is a member? <a href="/login" class="text-info" style="text-decoration: none;">Login</a></p>
   </div>
 </form>
 </div>

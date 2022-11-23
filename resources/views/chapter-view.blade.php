@@ -1,59 +1,63 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container">
+<div class="container text-dark">
 <h3 style="text-align:center;">Section {{$data->part}}</h3>
 <div class="row border-0 ">
     <div class="col">
-        <div class="card border-0">
+        <div class="card border-0" style="background-color: #Dee8e8;">
+        <h4>
             <ul class="pagination">
-                <div class="col text-center-lefts">
+                <div class="col text-center">
                     <li class="page-item">
-                        <a class="page-link border-0 text-dark"  href="{{ route('view', ['partId' => $back, 'novelId' => $data->judul]) }}">Previous</a>
+                        <a class="page-link border-0 text-info"  href="{{ route('view', ['partId' => $back, 'novelId' => $data->judul]) }}" style="background-color: #Dee8e8;">Previous</a>
                     </li>
                 </div>
                 <div class="col text-center">
                     <li class="page-item ">
-                        <a class="page-link border-0 text-dark" href="{{ route('create', ['novelId' => $data->judul]) }}">Index</a>
+                        <a class="page-link border-0 text-info" href="{{ route('create', ['novelId' => $data->judul]) }}" style="background-color: #Dee8e8;">Index</a>
                     </li>
                 </div>
-                <div class="col">
-                    <li class="page-item text-right">
-                        <a class="page-link border-0 text-dark" href="{{ route('view', ['partId' => $next, 'novelId' => $data->judul]) }}">Previous</a>
+                <div class="col text-center">
+                    <li class="page-item">
+                        <a class="page-link border-0 text-info" href="{{ route('view', ['partId' => $next, 'novelId' => $data->judul]) }}" style="background-color: #Dee8e8;">Previous</a>
                     </li>
                 </div>
             </ul>
+            </h4>
         </div>
      </div>
 </div>
 
 <div class="row justify-content-md-center">
-    <div class="col border-0">
+    <div class="col border-0 text-dark">
         {!! nl2br(e($data->chapter)) !!}
     </div>
 </div>
 <br>
 
 <div class="row border-0">
-    <div class="col">
-        <div class="card border-0">
+<div class="col">
+        <div class="card border-0" style="background-color: #Dee8e8;">
+        <h4>
             <ul class="pagination">
-                <div class="col text-center-left">
+                <div class="col text-center">
                     <li class="page-item">
-                        <a class="page-link border-0 text-dark"  href="{{ route('view', ['partId' => $back, 'novelId' => $data->judul]) }}">Previous</a>
+                        <a class="page-link border-0 text-info"  href="{{ route('view', ['partId' => $back, 'novelId' => $data->judul]) }}" style="background-color: #Dee8e8;">Previous</a>
                     </li>
                 </div>
                 <div class="col text-center">
                     <li class="page-item ">
-                        <a class="page-link border-0 text-dark" href="{{ route('create', ['novelId' => $data->judul]) }}">Index</a>
+                        <a class="page-link border-0 text-info" href="{{ route('create', ['novelId' => $data->judul]) }}" style="background-color: #Dee8e8;">Index</a>
                     </li>
                 </div>
-                <div class="col">
-                    <li class="page-item text-right">
-                        <a class="page-link border-0 text-dark" href="{{ route('view', ['partId' => $next, 'novelId' => $data->judul]) }}">Previous</a>
+                <div class="col text-center">
+                    <li class="page-item">
+                        <a class="page-link border-0 text-info" href="{{ route('view', ['partId' => $next, 'novelId' => $data->judul]) }}" style="background-color: #Dee8e8;">Previous</a>
                     </li>
                 </div>
             </ul>
+            </h4>
         </div>
      </div>
 </div>
