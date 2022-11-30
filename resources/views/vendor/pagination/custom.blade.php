@@ -27,7 +27,7 @@
         </li>
         @if($paginator->currentPage() != 3)
             {{-- "Three Dots" Separator --}}
-            <li class="page-item disabled" aria-disabled="true"><span class="page-link">!!!</span></li>
+            <li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
         @endif
     @endif
         @for ($i = $start; $i <= $end; $i++)

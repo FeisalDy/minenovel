@@ -40,12 +40,20 @@
         {{-- jika mengirim file wajib menggunakan enctype="multipart/form-data" --}}
             <form action="{{url('input/chapter/proses')}}" method="post" enctype="multipart/form-data">
             @csrf
-                <h3 style="text-align: center;">{{$data2->title}}</h3>
-                    <?php $title = $data2->title;?>
-                        <input type="hidden" name="title" value="<?php echo $title?>"><br>
-                            <div class="form-outline mb-4">
-                                <input type="file" name="text" id="form2Example1" class="form-control" />
+                <h3 style="text-align: center; word-wrap:break-word;">{{$data2->title}}</h3>
+                    <?php $title = $data2->title; $id = $data2->id;?>
+                        <input type="hidden" name="id" value="<?php echo $id?>"><br>
+                            <div class="custom-file form-outline mb-4">
+                                <label class="custom-file-label" for="form2Example1">Txt File</label>
+                                <input type="file" name="text" id="form2Example1" class="custom-file-input"/>
                             </div>
+                            <script>
+                            // Add the following code if you want the name of the file appear on select
+                            $(".custom-file-input").on("change", function() {
+                            var fileName = $(this).val().split("\\").pop();
+                            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                            });
+                            </script>
                             @error('text')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -61,7 +69,10 @@
                 <th scope="col">Judul</th>
                 <th scope="col">Chapter</th>
                 <th scope="col" class="text-right">
-                <a href="{{ route('deletechapter', ['novelId' => $data3])  }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?')" class="btn btn-danger">Delete</a>
+                <h1>
+                <a href="{{ route('deletechapter', ['novelId' => $data3])  }}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?')" 
+                class="fa fa-trash text-danger" style="text-decoration: none;" aria-hidden="true"></a>
+                </h1>
                 </th>
             </tr>
         </thead>
@@ -70,9 +81,10 @@
         {{-- menampilkan data  --}}
             @foreach ($data as $key=>$item)
             <tr>
-                <td>{{$item->title}}</td>
+                <td>
+                    {{$item->title}}</td>
                 <td>Chapter {{$data->firstItem()+$key}}</td>
-                <td class="text-right"><a href="{{ route('view', ['partId' => $item->part, 'novelId' => $item->judul]) }}" class="btn btn-dark">Select</a></td>
+                <td class="text-right"><a href="{{ route('view', ['partId' => $item->part, 'novelId' => $item->upload_id]) }}" class="btn btn-dark">Select</a></td>
             </tr>
             @endforeach
         </tbody>

@@ -29,7 +29,7 @@ class NovelInputController extends Controller
 
     public function chapter($novelId){
 
-        $data = DB::table('chapters')->join('uploads', 'chapters.judul', '=', 'uploads.title')->
+        $data = DB::table('chapters')->join('uploads', 'chapters.upload_id', '=', 'uploads.id')->
         where('uploads.title', $novelId)->paginate(10);
         $data2 = DB::table('uploads')->where('title', $novelId)->first();
         $data3 = $novelId;
@@ -84,7 +84,7 @@ class NovelInputController extends Controller
 
         //membuat validasi, jika tidak diisi maka akan menampilkan pesan error
         $this->validate($request, [
-            'title'         => 'required',
+            'id'         => 'required',
             'text'          => 'required'
         ]);
 
@@ -109,7 +109,7 @@ class NovelInputController extends Controller
         
         for($i = 0; $i < count($five); $i++){
             $upload = new Chapter;
-            $upload->judul = $request->input('title');
+            $upload->upload_id = $request->input('id');
             $upload->part = $i + 1;
             $upload->chapter = $five[$i];
             $upload->save();

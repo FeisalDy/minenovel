@@ -1,6 +1,5 @@
 @extends('layouts.master')
 
-
 @section('content')
 <div class="container"
         <div class="row">
@@ -58,25 +57,12 @@
                         <tr>
                             @desktop
                             <td style="max-width:70px; word-wrap:break-word;">
-                            <?php $i=1; ?>
-                            @foreach ($data2 as $key=>$item2)
-                                @if($item->id == $item2->upload_id && $i <= 5)
-                                <a href="{{ route('view', ['partId' => $item2->part, 'novelId' => $item2->upload_id]) }}" class="text-dark" style="text-decoration: none;">Chapter {{$item2->part}}</a><br>
-                                <?php $i++; ?>
-                                @endif
-                            @endforeach
+                            {{mb_strimwidth($item->keterangan, 0, 400, "...")}}
                             </td>
                             @enddesktop
-
                             @mobile
                             <td style="max-width: 70px; word-wrap:break-word">
-                            <?php $i=1; ?>
-                            @foreach ($data2 as $key=>$item2)
-                                @if($item->id == $item2->upload_id && $i <= 5)
-                                <a href="{{ route('view', ['partId' => $item2->part, 'novelId' => $item2->upload_id]) }}" class="text-dark" style="text-decoration: none;">Chapter {{$item2->part}}</a><br>
-                                <?php $i++; ?>
-                                @endif
-                            @endforeach
+                            {{$item->keterangan}}
                             </td>
                             @endmobile
                         </tr>
