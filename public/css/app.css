@@ -76,4 +76,24 @@
         transform: translateY(-50%);
     }
 
+    .pagination li a {
+        color: black !important;
+        text-decoration: none;
+      }
+
+    .pagination li.active a {
+        color: white !important;
+        text-decoration: none;
+      }
+
+      .pagination li:hover:not(.active) a {
+        color: rgb(27, 182, 197) !important;
+      }
+      
+      .ellipsis {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
 

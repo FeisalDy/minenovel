@@ -19,6 +19,8 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\NovelInputController;
 use App\Http\Controllers\ListNovelController;
+use App\Http\Middleware\Admin;
+
 
 Route::get('/', [SessionsController::class, 'create']);
 
@@ -49,3 +51,5 @@ Route::get('/input/chapter/delete/{novelId}', [NovelInputController::class, 'del
 Route::get('/list-novel', [ListNovelController::class, 'index']);
 Route::get('/list-novel/search', [ListNovelController::class, 'search']);
 
+Route::get('/bookmark/{novelId}/{userId}', [ListNovelController::class, 'bookmark'])->name('bookmark');
+Route::get('/bookmark/{userId}', [ListNovelController::class, 'viewbookmark'])->name('viewbookmark');

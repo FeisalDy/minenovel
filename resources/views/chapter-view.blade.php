@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container text-dark">
-<h3 style="text-align:center;">Section {{$data->part}}</h3>
+<h3 style="text-align: center;">Section {{$data->part}}</h3>
 
-<div class="row border-0 ">
+<div class="row border-0">
     <div class="col">
         <div class="card border-0" style="background-color: #Dee8e8;">
             <ul class="pagination justify-content-center">

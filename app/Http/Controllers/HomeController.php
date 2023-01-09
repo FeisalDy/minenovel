@@ -12,12 +12,8 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $data = DB::table('uploads')->paginate(5);
+        $data = DB::table('uploads')->orderBy('updated_at', 'DESC')->paginate(5);
         $data2 = DB::table('chapters')->orderBy('part', 'DESC')->get();
-
-
- 
-
 
 
         return view('home', ['title' => 'Home'])->with('data',$data)->with('data2',$data2);

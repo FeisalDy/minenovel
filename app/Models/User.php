@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    public function bookmark()
+    {
+        return $this->hasMany(Users_Bookmark::class, 'user_id', 'id');
+    }
 }

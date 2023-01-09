@@ -16,4 +16,9 @@ class Upload extends Model
     {
         return $this->hasMany(Chapter::class);
     }
+
+    public function users_bookmark()
+    {
+        return $this->hasMany(Users_Bookmark::class);
+    }
 }
